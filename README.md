@@ -1,7 +1,15 @@
 # Organize_downloads
 
 ## Descripción
-Script en Python para ordenar los archivos de descargas en Windows
+Script en Python para ordenar los archivos de descargas en Windows en distintas carpetas:
+
+- **Compressed**: Archivos comprimidos como `.zip`, `.rar`, `.7z`, `.tar`, `.gz`.
+- **Programs**: Archivos de programas o scripts como `.exe`, `.bat`, `.sh`, `.msi`.
+- **Music**: Archivos de audio como `.mp3`, `.wav`, `.aac`, `.flac`, `.ogg`, `.wma`, `.m4a`, `.alac`.
+- **Video**: Archivos de video como `.mp4`, `.mov`, `.wmv`, `.avi`, `.mkv`, `.flv`, `.webm`, `.3gp`, `.mpeg`.
+- **Documents**: Archivos de texto, documentos de oficina y presentaciones como `.txt`, `.rtf`, `.md`, `.doc`, `.docx`, `.odt`, `.xls`, `.xlsx`, `.ods`, `.ppt`, `.pptx`, `.odp`, `.pdf`.
+- **Images**: Archivos de imagen como `.jpg`, `.jpeg`, `.png`, `.gif`, `.bmp`, `.tiff`, `.webp`, `.svg`.
+- **Others**: Una categoría vacía para archivos que no encajan en las anteriores.
 
 ## Instalación del Script
 
