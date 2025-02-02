@@ -28,7 +28,7 @@ def create_folders() -> None:
     for k in FOLDERS:
         try:
             new_folder = f"{DOWNLOADS_FOLDER}/{k}"
-            os.mkdir(new_folder)
+            os.makedirs(new_folder, exist_ok=True)
         except FileExistsError:
             logging.error(f"La carpeta ya existe: {new_folder}")
 
@@ -60,9 +60,20 @@ def move_file(file_name: str, folder_name: str) -> None:
     Move file into folder_move.
     """
     try:
-        os.makedirs(folder_name, exist_ok=True)
-        shutil.move(f"{DOWNLOADS_FOLDER}/{file_name}", f"{DOWNLOADS_FOLDER}/{folder_name}")
-        print(f"Archivo movido exitosamente a {folder_name}")
+        destination_folder = os.path.join(DOWNLOADS_FOLDER, folder_name)
+
+        original_file_path = os.path.join(DOWNLOADS_FOLDER, file_name)
+        base_name, extension = os.path.splitext(file_name)
+        new_file_path = os.path.join(destination_folder, file_name)
+
+        counter = 1
+        while os.path.exists(new_file_path):
+            new_file_name = f"{base_name} ({counter}){extension}"
+            new_file_path = os.path.join(destination_folder, new_file_name)
+            counter += 1
+
+        shutil.move(original_file_path, new_file_path)
+        print(f"Archivo movido exitosamente a {new_file_path}")
     except FileNotFoundError:
         logging.error(f"Error: El archivo {folder_name} no existe.")
     except Exception as e:

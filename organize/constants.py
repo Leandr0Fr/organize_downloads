@@ -1,6 +1,7 @@
 from os import path
 
-DOWNLOADS_FOLDER = path.join(path.expanduser("~"), "Downloads")
+DOWNLOADS_FOLDER = path.abspath(path.join(path.expanduser("~"), "Downloads"))
+
 
 FOLDERS = {
     "Compressed": [".zip", ".rar", ".7z", ".tar", ".gz"],
